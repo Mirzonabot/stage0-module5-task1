@@ -12,6 +12,7 @@ public class ArrayTasks {
      */
     public String[] seasonsArray() {
 
+        return new String[]{"winter", "spring", "summer", "autumn"};
     }
 
     /**
@@ -26,6 +27,11 @@ public class ArrayTasks {
      */
     public int[] generateNumbers(int length) {
 
+        int[] arr = new int[length];
+        for (int i = 0; i < length; i++){
+            arr[i] = i + 1;
+        }
+        return arr;
     }
 
     /**
@@ -37,7 +43,11 @@ public class ArrayTasks {
      * arr = [5, -3, -4] -> sum = -2
      */
     public int totalSum(int[] arr) {
-
+        int s = 0;
+        for (int i : arr){
+            s += i;
+        }
+        return s;
     }
 
     /**
@@ -51,6 +61,12 @@ public class ArrayTasks {
      */
     public int findIndexOfNumber(int[] arr, int number) {
 
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == number){
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -64,6 +80,11 @@ public class ArrayTasks {
      */
     public String[] reverseArray(String[] arr) {
 
+        String[] arr2 = new String[arr.length];
+        for (int i = 0; i < arr.length; i++){
+            arr2[i] = arr[arr.length - i - 1];
+        }
+        return arr2;
     }
 
     /**
@@ -79,6 +100,19 @@ public class ArrayTasks {
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
 
+        int[] arr2 = new int[arr.length];
+        int j = 0;
+        for (int i : arr){
+            if (i > 0){
+                arr2[j] = i;
+                j++;
+            }
+        }
+        int[] arr3 = new int[j];
+        for (int i = 0; i < j; i++){
+            arr3[i] = arr2[i];
+        }
+        return arr3;
     }
 
     /**
@@ -93,5 +127,15 @@ public class ArrayTasks {
      */
     public int[][] sortRaggedArray(int[][] arr) {
 
+        for (int i = 0; i < arr.length; i++) {
+            int[] temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && temp.length < arr[j].length) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+        return arr;
     }
 }
